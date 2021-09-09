@@ -1,0 +1,65 @@
+
+
+
+{% extends "store/layout.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'store/contactme.css' %}">
+    <link rel="stylesheet" href="{% static 'store/social.css' %}">
+
+<div class="container" >
+  <div style="text-align:center">
+    <h5 style="padding-bottom:40px ">Feel free to leave us a message</h5>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div class="container d-flex justify-content-center">
+        <div class="card p-3 py-4">
+            <div class="text-center">
+                <strong><h2 style="color:black;font: normal 36px 'Cookie', cursive;margin: 0;">Gaming<span style="color: #e0ac1c;">Store</span> </h2></strong>
+                 <span class="mt-1 clearfix">Store for gamers!</span><br>
+                 <small class="mt-4">Connect with us on social media </small>
+                <div class="social-buttons mt-5">
+                  <button class="neo-button" >
+                    <i class="fa fa-facebook fa-1x"></i>
+                   </button>
+                  <button class="neo-button"><i class="fa fa-instagram fa-1x"></i> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    function feedback(){
+    alert("Thanks for your Feedback!");
+    }
+</script>
+
+    </div>
+    <div class="column">
+      <form action="{% url 'contactUs' %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <label for="FirstName">First Name</label>
+        <input type="text" id="FirstName" name="FirstName" placeholder="Your name..">
+        <label for="LastName">Last Name</label>
+        <input type="text" id="LastName" name="LastName" placeholder="Your last name..">
+        <label for="City">Country</label>
+        <select id="City" name="City">
+          <option value="australia">Karachi</option>
+          <option value="canada">Islamabad</option>
+          <option value="usa">Lahore</option>
+        </select>
+        <label for="Subject">Subject</label>
+        <textarea id="Subject" name="Subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" onclick="feedback()" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

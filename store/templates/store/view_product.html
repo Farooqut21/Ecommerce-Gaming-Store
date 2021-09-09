@@ -1,0 +1,67 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block title %}Product Details{% endblock %}
+{% block body %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+      xmlns="http://www.w3.org/1999/html">
+
+        <div class="container row" >
+		<div class="column">
+			<img  class="img-thumbnail" alt="{{product.name}}" src="{{product.Imagecheck}}" style="height:500px;width:400px">
+
+			</div>
+		<div class="column" style="padding-left:100px">
+            <div style="width:500px;height:200px">
+			<h3>{{ product.name }}</h3> <h5>Price: ${{ product.price }}</h5>
+                </div>
+			<hr>
+            <div style="width:500px;height:300px">
+            <h2>Discription</h2>
+                <p>{{ product.discription|linebreaks }}.</p>
+            </div>
+			<a data-product="{{product.id}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</a>
+		</div>
+        </div>
+<hr>
+    <div><h2>Product Details:</h2></div>
+    <p>{{ product.details|linebreaks }}.</p>
+<hr>
+<div></div>
+		<div class="card-body">
+        <!-- comments -->
+        <h2>{{ comments.count }} comments</h2>
+
+        {% for comment in comments %}
+        <div class="comments" style="padding: 10px;">
+          <p class="font-weight-bold">
+            {{ comment.name }}
+            <span class=" text-muted font-weight-normal">
+              {{ comment.created_on }}
+            </span>
+          </p>
+          {{ comment.body | linebreaks }}
+        </div>
+        {% endfor %}
+      </div>
+
+    <div class="col-md-8 card mb-4  mt-3 ">
+      <div class="card-body">
+        {% if new_comment %}
+        <div class="alert alert-success" role="alert">
+          Your comment is awaiting moderation
+        </div>
+        {% else %}
+        <h3>Leave a comment</h3>
+          {% load crispy_forms_tags %}
+        <form method="post" style="margin-top: 1.3em;">
+          {{ comment_form | crispy }}
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+
+				{% endblock %}

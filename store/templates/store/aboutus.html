@@ -1,0 +1,88 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<style>
+.container {
+    padding-left:10px;
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+
+}
+
+.border-gradient {
+    text-align:justify;
+    padding:20px;
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+}
+.border-gradient-purple {
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="{% static 'store/card.css' %}">
+<div class=" container on-light">
+    <div class="border-gradient border-gradient-purple" style="border:">
+        <h1 style="text-align:center">About Us</h1><br>
+        <p>PS4 GAMING STORE (THE GAME SHOP FOR ALL) Dealing in all sort of Gaming DVD of Nintendo Switch, Retro Games,
+            PLAYSTATION 4, Microsoft xbox 360, PC and Playstation 3 & 2 & Home Products in many ways Rental Service /
+            Buy / Sell / Exchange with another games.
+
+            Our Core value products are ” USED GAMES AND MORE UPTO 30% ” that We deal in USED Original PS4 Games on
+            Discount Rates that new comers are eligible to avail the new products.</p>
+        <p>We Import Electronics Gaming Accessories Digital PSN Gift Cards Vallet Credit Top UP in USA, UAE and UK, PS
+            PLUS MEMBERSHIP and other 500+ gaming / Imported Products that are available at resonable price with Cash on
+            Delivery Service in Karachi and all over Pakistan VIA our TCS , Leopard Courier Partners and Send their
+            riders to deliver the game at your door step.</p>
+    </div>
+</div>
+<br><br><br><br><br>
+
+    <h2 style="text-align:center">Our Team</h2>
+  <div class="cards-list">
+
+
+    <div class="card 1">
+      <div class="card_image"> <img src="{% static 'images/farooq.jpg' %}" /> </div>
+      <div class="card_title title-white">
+        <p>Muhammad Farooq </p>
+
+      </div>
+    </div>
+        <div class="card 1">
+      <div class="card_image"> <img src="{% static 'images/safi.jpg' %}" /> </div>
+      <div class="card_title title-white">
+        <p>Safiullah Parvez</p>
+      </div>
+
+    </div>
+      </div>
+
+  <div class="cards-list">
+
+
+
+    <div class="card 1">
+      <div class="card_image"> <img src="{% static 'images/ghayyas.jpg' %}" /> </div>
+      <div class="card_title title-white">
+        <p>Ghayyas Ahmed</p>
+      </div>
+    </div>
+          <div class="card 1">
+      <div class="card_image"> <img src="{% static 'images/raffeh.jpg' %}" /> </div>
+      <div class="card_title title-white">
+        <p>Rafeh Hammed </p>
+      </div>
+
+    </div>
+
+      </div>
+
+  {% endblock body %}

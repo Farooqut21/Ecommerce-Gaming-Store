@@ -1,0 +1,32 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <div class="form-1" align="center" style="margin: auto">
+        <br>
+    <h2 >Login</h2>
+        <br>
+        <br>
+
+
+    <form action="{ % url 'login' %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-group col-md-3 mb-3">
+            <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group col-md-3 mb-3">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+         {% if message %}
+        <div style="color:red">{{ message }}</div><br>
+    {% endif %}
+
+        <input class="btn btn-primary" type="submit" value="Login">
+    </form>
+
+
+    Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+    </div>
+{% endblock %}

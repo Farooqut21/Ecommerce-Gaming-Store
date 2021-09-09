@@ -1,0 +1,21 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block title %}Categories{% endblock %}
+
+
+{% block body %}
+
+<div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    All Categories
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    {% for category in categories   %}
+    <a class="dropdown-item" href="{% url ' %}">{{ category }}</a>
+        {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}
