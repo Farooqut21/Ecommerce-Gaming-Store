@@ -158,7 +158,7 @@ def resetpassword(request):
         form=PasswordChangeForm(user=request.user)
         args={'form':form,'cartItems':cartItems}
         return render(request,'store/resetpassword.html',args)
-
+@login_required
 def add_product(request):
     if request.method=='POST':
         form=AddProductForm(request.POST)

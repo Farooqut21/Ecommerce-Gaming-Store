@@ -11,7 +11,7 @@
         <br>
 
 
-    <form action="{ % url 'login' %}" method="post" autocomplete="off">
+    <form  method="post" action="{% url 'login' %}" autocomplete="off">
         {% csrf_token %}
         <div class="form-group col-md-3 mb-3">
             <input autofocus class="form-control" type="text" name="username" placeholder="Username">
