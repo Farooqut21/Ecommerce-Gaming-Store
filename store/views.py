@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from django.contrib.auth import authenticate,login,logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
@@ -8,7 +7,7 @@ from django.urls import reverse
 from .models import *
 from django.http import JsonResponse
 import json
-from .forms import CommentForm
+from .forms import CommentForm,AddProductForm,ContactSellerForm
 from .forms import UserChangeForm,EditProfileform
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm,PasswordResetForm
 from django.contrib.auth import update_session_auth_hash
@@ -159,6 +158,16 @@ def resetpassword(request):
         form=PasswordChangeForm(user=request.user)
         args={'form':form,'cartItems':cartItems}
         return render(request,'store/resetpassword.html',args)
+
+def add_product(request):
+    if request.method=='POST':
+        form=AddProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/store/")
+    else:
+        form=AddProductForm()
+        return render(request,'store/add_product.html',{'form':form})
 def checkout(request):
     data=cartData(request)
     cartItems = data['cartItems']
@@ -276,3 +285,6 @@ def contactUs(request):
     return render(request, 'store/contactus.html',{'cartItems':cartItems})
 
 
+def contact_seller(request):
+    form = ContactSellerForm()
+    return render(request,'store/contact_seller.html',{'form':form})

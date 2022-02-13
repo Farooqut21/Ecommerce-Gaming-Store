@@ -1,7 +1,8 @@
+from logging import PlaceHolder
 from django import forms
-from.models import Customer,Comment
+from.models import Customer,Comment,Product
 from django.contrib.auth.forms import UserChangeForm,UserCreationForm,PasswordChangeForm
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.core.files.images import get_image_dimensions
 
 class CustomerCreationForm(UserCreationForm):
@@ -70,3 +71,13 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('name', 'email', 'body')
+
+class AddProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'
+class ContactSellerForm(forms.Form):
+    name = forms.CharField(max_length=30, required=False,widget=forms.TextInput(attrs={'placeholder': 'Full Name'}))
+    phone_no = forms.IntegerField(required=True,widget=forms.TextInput(attrs={'placeholder': 'tel: XXX XXX XXXX'}))
+    email = forms.EmailField(max_length=254,widget=forms.TextInput(attrs={'placeholder': 'email'}))
+    message= forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":40}))

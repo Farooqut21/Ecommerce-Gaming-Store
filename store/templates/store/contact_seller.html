@@ -1,0 +1,75 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block title %}Contact Seller{% endblock %}
+
+{% block body %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<h1 style="text-align: center;">Get in Touch with seller</h1>    
+
+<style>
+    .flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+    border: 1px solid rgb(167, 167, 151);
+    padding: 10px;
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+    } 
+</style>
+<div class="flex-container">
+
+    <div class="flex-child magenta">
+        
+<h2 style="text-align: center;">write us</h2>    
+        
+        <table >
+            {% for field in form %}
+            <tbody>
+            <tr>
+              <td>
+                <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+              </td>
+              <td>
+                {{ field }}
+              </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    
+    <div class="flex-child green">
+        <div class="details">
+            <h3 style="text-align: center;">Contact Details</h3>
+            <div class="contact-items-wrapper">
+                <div class="contact-items">
+                    <span class="material-icons">location_on</span>
+                    <p><strong>Address:</strong>Your Address Here</p>
+                </div>
+                <div class="contact-items">
+                    <span class="material-icons">local_phone</span>
+                    <p><strong>Phone:</strong> +1-000-000-000</p>
+                </div>
+                <div class="contact-items">
+                    <span class="material-icons">alternate_email</span>
+                    <p><strong>Email:</strong><a href="#"> example@xyz.com</a> </p>
+                </div>
+                <div class="contact-items">
+                    <span class="material-icons">public</span>
+                    <p><strong>Website:</strong><a href="#"> www.yourcompany.com</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+  </div>
+    {% endblock body %}
