@@ -90,7 +90,11 @@
               </form>
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+<<<<<<< HEAD
 
+=======
+              
+>>>>>>> 7ae2b657801f06e9db43abea7759eecc04ce7a75
 
               {% if user.is_authenticated %}
               <div class="dropdown">
@@ -106,6 +110,7 @@
                 <div class="nav-item"style="padding:5px">
                     <a  href="{% url 'login' %}" class="btn btn-light">Log In</a>
                 </div>
+<<<<<<< HEAD
 
                 <div class="nav-item">
                     <a  href="{% url 'register' %}" class="btn btn-light">Register</a>
@@ -118,6 +123,15 @@
 	    	</a>
             
 	    	<p id="cart-total">{{cartItems}}</p>
+=======
+                
+                <div class="nav-item">
+                    <a  href="{% url 'register' %}" class="btn btn-light">Register</a>
+            </div>
+            {% endif %}
+              </div>
+            </div>
+>>>>>>> 7ae2b657801f06e9db43abea7759eecc04ce7a75
 
             </div>
 

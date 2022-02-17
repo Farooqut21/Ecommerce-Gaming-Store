@@ -4,7 +4,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
   <h2>Add Product</h2>
+<<<<<<< HEAD
   <form method="post"action="{% url 'add_product' %}" onsubmit="return alert('Product Added successfully');">
+=======
+  <form method="post"action="{% url 'add_product' %}">
+>>>>>>> 7ae2b657801f06e9db43abea7759eecc04ce7a75
     {% csrf_token %}
         
     {% for field in form %}

@@ -76,3 +76,11 @@ class AddProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
+<<<<<<< HEAD
+=======
+class ContactSellerForm(forms.Form):
+    name = forms.CharField(max_length=30, required=False,widget=forms.TextInput(attrs={'placeholder': 'Full Name'}))
+    phone_no = forms.IntegerField(required=True,widget=forms.TextInput(attrs={'placeholder': 'tel: XXX XXX XXXX'}))
+    email = forms.EmailField(max_length=254,widget=forms.TextInput(attrs={'placeholder': 'email'}))
+    message= forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":40}))
+>>>>>>> 7ae2b657801f06e9db43abea7759eecc04ce7a75
