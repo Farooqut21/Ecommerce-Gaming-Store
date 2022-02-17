@@ -7,11 +7,7 @@ from django.urls import reverse
 from .models import *
 from django.http import JsonResponse
 import json
-<<<<<<< HEAD
 from .forms import CommentForm,AddProductForm
-=======
-from .forms import CommentForm,AddProductForm,ContactSellerForm
->>>>>>> 7ae2b657801f06e9db43abea7759eecc04ce7a75
 from .forms import UserChangeForm,EditProfileform
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm,PasswordResetForm
 from django.contrib.auth import update_session_auth_hash
@@ -164,29 +160,19 @@ def resetpassword(request):
         return render(request,'store/resetpassword.html',args)
 @login_required
 def add_product(request):
-<<<<<<< HEAD
     data = cartData(request)
     cartItems = data['cartItems']
     print(cartItems)
     products=Product.objects.all()
     context={'products':products}
-=======
->>>>>>> 7ae2b657801f06e9db43abea7759eecc04ce7a75
     if request.method=='POST':
         form=AddProductForm(request.POST)
         if form.is_valid():
             form.save()
-<<<<<<< HEAD
             return redirect("/store/add_product")
     else:
         form=AddProductForm()
         return render(request,'store/add_product.html',{'form':form,'context':context,'cartItems':cartItems})
-=======
-            return redirect("/store/")
-    else:
-        form=AddProductForm()
-        return render(request,'store/add_product.html',{'form':form})
->>>>>>> 7ae2b657801f06e9db43abea7759eecc04ce7a75
 def checkout(request):
     data=cartData(request)
     cartItems = data['cartItems']
@@ -304,6 +290,3 @@ def contactUs(request):
     return render(request, 'store/contactus.html',{'cartItems':cartItems})
 
 
-def contact_seller(request):
-    form = ContactSellerForm()
-    return render(request,'store/contact_seller.html',{'form':form})
