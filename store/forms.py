@@ -1,7 +1,8 @@
+from logging import PlaceHolder
 from django import forms
-from.models import Customer,Comment
+from.models import Customer,Comment,Product
 from django.contrib.auth.forms import UserChangeForm,UserCreationForm,PasswordChangeForm
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.core.files.images import get_image_dimensions
 
 class CustomerCreationForm(UserCreationForm):
@@ -70,3 +71,8 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('name', 'email', 'body')
+
+class AddProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'

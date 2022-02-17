@@ -4,6 +4,19 @@
 {% block body %}
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{% if user.is_authenticated %}
+
+<h2>want to sell your product ? <a style="font-size: medium;" href="{% url 'add_product' %}">Add product here.</a></h2> 
+
+	{% else %}
+	
+<h2>want to sell your product ? <a style="font-size: medium;" href="{% url 'register' %}">Register here.</a></h2> 
+
+{% endif %}
+
+
 {% if products %}
 <div class="row">
 		{% for product in products %}
@@ -18,7 +31,7 @@
 
 				<button  data-product="{{product.id}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
 				<a class="btn btn-outline-success" href="view_product/{{product.id}}">View</a>
-				<h4 style="display: inline-block; float: right"><strong>${{ product.price|floatformat:2 }}</strong></h4>
+				<h4 style="display: inline-block; float: right"><strong>Rs.{{ product.price|floatformat:2 }}</strong></h4>
 
 			</div>
 		</div>

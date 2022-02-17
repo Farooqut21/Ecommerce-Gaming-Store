@@ -1,6 +1,8 @@
 {% extends 'store/layout.html' %}
 {% load static %}
 {% block body %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
      <div class="row">
 		<div class="col-lg-6">
 			<div class="box-element" id="form-wrapper">
@@ -104,14 +106,14 @@
     </script>
 
 	<script type="text/javascript">
-		var shipping = '{{order.shipping}}'
+		var shipping = '{{order.shipping}}' ;
 
 		if (shipping == 'False'){
-		 	document.getElementById('shipping-info').innerHTML = ''
+		 	document.getElementById('shipping-info').innerHTML = '';
 		}
 
 		if (user != 'AnonymousUser'){
-		 	document.getElementById('user-info').innerHTML = ''
+		 	document.getElementById('user-info').innerHTML = '';
 		 }
 
 		if (shipping == 'False' && user != 'AnonymousUser'){
@@ -123,8 +125,8 @@
 
 		var form = document.getElementById('form')
 		form.addEventListener('submit', function(e){
-	    	e.preventDefault()
-	    	console.log('Form Submitted...')
+	    	e.preventDefault();
+	    	console.log('Form Submitted...');
 	    	document.getElementById('form-button').classList.add("hidden");
 	    	document.getElementById('payment-info').classList.remove("hidden");
 	    })

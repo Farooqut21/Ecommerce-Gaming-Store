@@ -4,7 +4,7 @@
 
 <html lang="en">
     <head>
-		
+
         <title>{% block title %}{% endblock %}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -31,32 +31,32 @@
 			return cookieValue;
 		}
 		const csrftoken = getToken('csrftoken');
-			
+
 		function getCookie(name){
 			var cookieArr=document.cookie.split(";");
 			for (var i=0; i<cookieArr.length;i++){
 				var cookiePair=cookieArr[i].split("=");
 				if (name == cookiePair[0].trim()){
 					return decodeURIComponent(cookiePair[1]);
-				
+
 				}
 			}
 			return null;
-			
+
 		}
 		var cart = JSON.parse(getCookie('cart'))
-		
+        
 		if (cart == undefined){
 			cart={}
 			console.log('Cart was created')
 			document.cookie='cart='+ JSON.stringify(cart)+";domain=;path=/"
-		}	
+		}
 		console.log('Cart:',cart)
 		</script>
     </head>
     <body>
-		
-		
+
+
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">
                     <a class="navbar-brand"><strong><h2 style="color: #ffffff;font: normal 36px 'Cookie', cursive;margin: 0;">Gaming<span style="color: #e0ac1c;">Store</span> </h2></strong></a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +70,7 @@
 			  </li>
                 <li>
                 <div class="dropdown show">
-                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="btn btn-light my-2 my-sm-0 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         All Categories
                       </a>
 
@@ -80,15 +80,17 @@
                             {% endfor %}
                       </div>
                     </div>
-			 </li>      
+			 </li>
 			</ul>
               <form class="ml-3 my-auto d-inline w-100" method="GET" action="{% url 'search' %}">
 
-      <input class="form-control-lg border-right-0" style="width:700px ;height:40px;padding-bottom:20px " type="search"  name="q"  placeholder="Search" aria-label="Search">
+      <input class="form-control-lg border-right-0" style="width:80% ;padding-bottom:20px " type="search"  name="q"  placeholder="Search" aria-label="Search">
       <button class="btn btn-light my-2 my-sm-0" value="{{q|escape}}" type="submit">Search</button>
 
               </form>
-              <div class="form-inline my-10 my-lg-0">
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+
 
               {% if user.is_authenticated %}
               <div class="dropdown">
@@ -101,23 +103,28 @@
               </div>
               </div>
                   {% else %}
-                <li class="nav-item">
+                <div class="nav-item"style="padding:5px">
                     <a  href="{% url 'login' %}" class="btn btn-light">Log In</a>
-                </li>
-                <li class="nav-item">
+                </div>
+
+                <div class="nav-item">
                     <a  href="{% url 'register' %}" class="btn btn-light">Register</a>
-                </li>
+            </div>
+            
             {% endif %}
               </div>
-	     	<a href="{% url 'cart' %}">
+              <a href="{% url 'cart' %}">
 	    		<img  id="cart-icon" src="{% static 'images/cart6.jfif' %}">
 	    	</a>
+            
 	    	<p id="cart-total">{{cartItems}}</p>
+
+            </div>
 
 	    </div>
 
 		</nav>
-		 
+
 
 
 		<div class="container" style="padding-top:100px">
