@@ -23,7 +23,7 @@
 				<hr>
 				<button  data-product="{{product.id}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
 				<a class="btn btn-outline-success" href="view_product/{{product.id}}">View</a>
-				<h4 style="display: inline-block; float: right"><strong>${{ product.price|floatformat:2 }}</strong></h4>
+				<h4 style="display: inline-block; float: right"><strong>Rs.{{ product.price|floatformat:2 }}</strong></h4>
 			</div>
 		</div>
 
@@ -41,7 +41,7 @@
 				<hr>
 				<button  data-product="{{product.id}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
 				<a class="btn btn-outline-success" href="view_product/{{product.id}}">View</a>
-				<h4 style="display: inline-block; float: right"><strong>${{ product.price|floatformat:2 }}</strong></h4>
+				<h4 style="display: inline-block; float: right"><strong>Rs.{{ product.price|floatformat:2 }}</strong></h4>
 			</div>
 		</div>
 		{% endfor %}
@@ -64,7 +64,7 @@ no search results : {{query}}
 
 				<button  data-product="{{product.id}}" data-action="add"  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
 				<a class="btn btn-outline-success" href="view_product/{{product.id}}">View</a>
-				<h4 style="display: inline-block; float: right"><strong>${{ product.price|floatformat:2 }}</strong></h4>
+				<h4 style="display: inline-block; float: right"><strong>Rs.{{ product.price|floatformat:2 }}</strong></h4>
 
 			</div>
 		</div>
